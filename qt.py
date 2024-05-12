@@ -28,6 +28,11 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.inclination_value = 0 
+        self.anomaly_value = 0
+        self.ascending_node_value = 0
+        self.pericenter_value = 0
+        
         # Установка размеров и цвета фона для главного окна
         self.setGeometry(0, 0, 1920, 1080)
         self.setStyleSheet("background-color: #d9d9d9;")
@@ -287,7 +292,7 @@ class MainWindow(QMainWindow):
             value = float(text)
             if 0 <= value <= 360:
                 self.parameter3_slider.setValue(int(value))
-                self.pericenter_value = value
+                self.anomaly_value = value
         except ValueError:
             pass
 
@@ -411,4 +416,3 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
-D
